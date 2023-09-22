@@ -82,11 +82,12 @@ main {
 }
 
 .selected {
-  background-color: grey;
+  background-color: var(--color-pink);
 }
 
 .completed {
-  text-decoration: line-through solid black;
+  text-decoration: line-through solid var(--color-foreground);
+  text-decoration-thickness: 2px;
 }
 
 .toolbar {
@@ -109,26 +110,26 @@ main {
   border-color: var(--color-foreground);
 }
 
-#remover-finalizados {
+#clear-completed {
   background-color: var(--color-cyan);
 }
 
-#apaga-tudo {
+#clear-board {
   background-color: var(--color-red);
 }
 
-#salvar-tarefas {
+#save-tasks {
   background-color: var(--color-green);
 }
 
-#mover-cima , #mover-baixo {
+#move-up , #move-down {
   background-color: var(--color-purple);
 }
 
-#mover-baixo img {
+#move-down img {
   rotate: 180deg;
 }
 
-#remover-selecionado {
+#delete-selected {
   background-color: var(--color-orange);
 }
