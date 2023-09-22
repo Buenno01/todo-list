@@ -27,10 +27,10 @@ const headerBuilder = () => {
   const headerElement = createElement('header', '', '');
 
   const title = createElement('h1', '', 'title');
-  title.innerHTML = 'Minha Lista de Tarefas';
+  title.innerHTML = 'To-Do List';
 
   const paragraph = createElement('p', '', 'funcionamento');
-  paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+  paragraph.innerText = 'Double click on a item to mark completed';
 
   headerElement.appendChild(title);
   headerElement.appendChild(paragraph);
@@ -58,7 +58,7 @@ function createTaskElement(taskName) {
 }
 function loadTasks() {
   const loadedTasks = JSON.parse(getSavedList());
-  taskList = document.querySelector('#lista-tarefas');
+  taskList = document.querySelector('#task-list');
   for (let i = 0; i < loadedTasks.length; i += 1) {
     const newTask = createTaskElement(loadedTasks[i].taskName);
     if (loadedTasks[i].completed) {
@@ -101,7 +101,7 @@ function taskInputBuilder() {
   const taskInputElement = createElement('input', '', 'texto-tarefa');
   taskInputElement.type = 'text';
   taskInputElement.max = '100';
-  taskInputElement.placeholder = 'Digite uma nova tarefa';
+  taskInputElement.placeholder = 'Type a new task';
   taskInputElement.addEventListener('keydown', handleInputKeydown);
 
   return taskInputElement;
@@ -130,10 +130,10 @@ const saveBoard = () => {
   }
   localStorage.setItem('savedTasks', JSON.stringify(array));
 };
-const moverBaixo = 'mover-baixo';
+const moverBaixo = 'move-down';
 function canMove(parentList, selected, id) {
   const { firstChild, lastChild } = parentList[0];
-  const moveUpBtnId = 'mover-cima';
+  const moveUpBtnId = 'move-up';
   const moveDownBtnId = moverBaixo;
   const moveUp = (id === moveUpBtnId && firstChild === selected);
   const moveDown = (id === moveDownBtnId && lastChild === selected);
@@ -146,7 +146,7 @@ const handleMoveTask = (event) => {
   if (!selected) return;
 
   const id = event.target.id || event.target.parentNode.id;
-  const parentList = document.querySelectorAll('#lista-tarefas');
+  const parentList = document.querySelectorAll('#task-list');
 
   if (canMove(parentList, selected, id)) {
     const sibling = id === moverBaixo
@@ -176,44 +176,44 @@ const clearSelected = () => {
 
 const toolbarBtnsAttributes = [
   {
-    id: 'apaga-tudo',
+    id: 'clear-board',
     icon: 'trashIcon.svg',
-    alt: 'Remove todas as tarefas',
+    alt: 'Delete all tasks',
     event: 'click',
     function: clearTasks,
   },
   {
-    id: 'remover-finalizados',
+    id: 'clear-completed',
     icon: 'magicEraser.svg',
-    alt: 'Remove as tarefas finalizadas',
+    alt: 'Delete completed tasks',
     event: 'click',
     function: clearCompleted,
   },
   {
-    id: 'salvar-tarefas',
+    id: 'save-tasks',
     icon: 'saveIcon.svg',
-    alt: 'botão de salvar todas as tarefas',
+    alt: 'Save all tasks',
     event: 'click',
     function: saveBoard,
   },
   {
-    id: 'mover-cima',
+    id: 'move-up',
     icon: 'arrowIcon.svg',
-    alt: 'botão de mover tarefa para cima',
+    alt: 'Move selected task up',
     event: 'click',
     function: handleMoveTask,
   },
   {
     id: moverBaixo,
     icon: 'arrowIcon.svg',
-    alt: 'botão de mover tarefa para baixo',
+    alt: 'Move selected task down',
     event: 'click',
     function: handleMoveTask,
   },
   {
-    id: 'remover-selecionado',
+    id: 'delete-selected',
     icon: 'eraser.svg',
-    alt: 'botão de remover tarefa selecionada',
+    alt: 'Delete selected task',
     event: 'click',
     function: clearSelected,
   },
@@ -235,7 +235,7 @@ function toolbarBuilder() {
 const mainBuilder = () => {
   const mainElement = createElement('main', '', '');
   const taskInput = inputSectionBuilder();
-  taskList = createElement('ol', '', 'lista-tarefas');
+  taskList = createElement('ol', '', 'task-list');
   const toolbar = toolbarBuilder();
 
   mainElement.appendChild(taskInput);
