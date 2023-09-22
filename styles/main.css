@@ -1,0 +1,134 @@
+main {
+  margin-top: 2em;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-task {
+  display: flex;
+}
+
+#texto-tarefa {
+  display: inline-block;
+  width: 300px;
+  height: 30px;
+  background-color: var(--color-selection);
+  border: 1px solid var(--color-cyan);
+  border-top-left-radius: 1em;
+  border-bottom-left-radius: 1em;
+  font-size: 1em;
+  padding: 0.2em 0.5em;
+  text-align: center;
+  color: var(--color-foreground);
+}
+
+#texto-tarefa::placeholder {
+  color: var(--color-comment);
+}
+
+#texto-tarefa:focus {
+  outline-color: var(--color-green);
+  color: var(--color-foreground);
+}
+
+#criar-tarefa {
+  width: 40px;
+  height: 2.35em;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  background-color: var(--color-pink);
+  color: var(--color-foreground);
+  font-size: 1em;
+  font-weight: 400;
+  border: 1px solid var(--color-cyan);
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  padding-left: 0.2em;
+  padding-right: 0.4em;
+}
+
+#criar-tarefa:hover {
+  background-color: var(--color-cyan);
+  border-color: var(--color-green);
+}
+
+#criar-tarefa:active {
+  background-color: var(--color-green);
+  font-weight: 800;
+  border-color: var(--color-cyan);
+}
+
+.task {
+  background-color: var(--color-purple);
+  color: var(--color-foreground);
+  display: flex;
+  height: 30px;
+  width: 400px;
+  overflow: hidden;
+  align-items: center;
+  text-align: left;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  border: 2px solid var(--color-purple);
+  border-radius: 1em;
+  box-shadow: 2px 2px 100px rgba(139 , 233 , 253 , 0.2);
+  font-size: 1em;
+  font-weight: 600;
+  text-overflow: hidden;
+  flex-wrap: nowrap;
+}
+
+.selected {
+  background-color: grey;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.toolbar {
+  margin-top: 1em;
+  width: 400px;
+  display: flex;
+  flex-flow: row-reverse;
+  gap: 10px;
+}
+
+.toolbar button {
+  width: 3em;
+  height: 3em;
+  border-radius: 0.5em;
+  cursor: pointer;
+  border: 2px solid rgba(139 , 233 , 253 , 0);
+}
+
+.toolbar button:hover {
+  border-color: var(--color-foreground);
+}
+
+#remover-finalizados {
+  background-color: var(--color-cyan);
+}
+
+#apaga-tudo {
+  background-color: var(--color-red);
+}
+
+#salvar-tarefas {
+  background-color: var(--color-green);
+}
+
+#mover-cima , #mover-baixo {
+  background-color: var(--color-purple);
+}
+
+#mover-baixo img {
+  rotate: 180deg;
+}
+
+#remover-selecionado {
+  background-color: var(--color-orange);
+}

@@ -1,0 +1,19 @@
+header {
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header #title {
+  padding: 0.5em 0;
+  color: var(--color-foreground);
+  font-size: 2.5em;
+  font-weight: 600;
+}
+
+header #funcionamento {
+  color: var(--color-comment);
+  font-weight: 100;
+}

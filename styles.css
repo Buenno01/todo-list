@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;200;300;400;500;600;700&display=swap');
+
+@import url('./styles/header.css');
+
+@import url('./styles/main.css');
+
+:root {
+
+  --color-background: rgb(40 , 42 , 54);
+
+  --color-comment: rgb(98 , 114 , 164);
+
+  --color-selection: rgb(68 , 71 , 90);
+
+  --color-foreground: rgb(248 , 248 , 242);
+
+  --color-cyan: rgb(139 , 233 , 253);
+
+  --color-green: rgb(80 , 250 , 123);
+
+  --color-orange: rgb(255 , 184 , 108);
+
+  --color-pink: rgb(255 , 121 , 198);
+
+  --color-purple: rgb(189 , 147 , 249);
+
+  --color-red: rgb(255 , 85 , 85);
+
+  --color-yellow: rgb(241 , 250 , 140);
+
+  --font-family: 'Roboto Mono', monospace;
+
+}
+
+body {
+  background-color: var(--color-background);
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
